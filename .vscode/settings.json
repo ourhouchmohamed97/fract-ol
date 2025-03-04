@@ -1,5 +1,8 @@
 {
 	"files.associations": {
-		"mlx.h": "c"
-	}
+		"mlx.h": "c",
+		"fractol.h": "c",
+		"libft.h": "c"
+	},
+	"C_Cpp.errorSquiggles": "disabled"
 }
