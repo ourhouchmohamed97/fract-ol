@@ -11,20 +11,28 @@ MLX_FLAGS = $(MLX_LIB) -framework OpenGL -framework AppKit
 SRC = $(MAN_DIR)/main.c \
 	$(MAN_DIR)/color.c \
 	$(MAN_DIR)/mandelbrot.c \
-	$(MAN_DIR)/m_set.c \
-	$(MAN_DIR)/j_set.c \
+	$(MAN_DIR)/julia.c \
+	$(MAN_DIR)/exit.c \
 
 OBJ = $(SRC:.c=.o)
 
+LIBFT_DIR = ./libft_utils
+LIBFT = $(LIBFT_DIR)/libft.a
+
 all: $(NAME)
 
-$(NAME): $(OBJ) $(INC_DIR)
-	$(CC) $(CFLAGS) $(MLX_FLAGS) $(OBJ) -o $(NAME)
+$(NAME): $(OBJ) $(LIBFT) $(INC_DIR)
+	$(CC) $(CFLAGS) $(MLX_FLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+
+$(LIBFT):
+	make -C $(LIBFT_DIR)
 
 clean:
+	make clean -C $(LIBFT_DIR)
 	$(RM) $(OBJ)
 
 fclean: clean
+	make fclean -C $(LIBFT_DIR)
 	$(RM) $(NAME)
 
 re: fclean all

@@ -1,42 +1,12 @@
-// /* ************************************************************************** */
-// /*                                                                            */
-// /*                                                        :::      ::::::::   */
-// /*   fractol.h                                          :+:      :+:    :+:   */
-// /*                                                    +:+ +:+         +:+     */
-// /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
-// /*                                                +#+#+#+#+#+   +#+           */
-// /*   Created: 2025/02/25 15:25:13 by mourhouc          #+#    #+#             */
-// /*   Updated: 2025/03/01 09:42:31 by mourhouc         ###   ########.fr       */
-// /*                                                                            */
-// /* ************************************************************************** */
-
-// #ifndef FRACTOL_H
-// # define FRACTOL_H
-
-// # include "../minilibx/mlx.h"
-// # include "../libft_utils/libft/libft.h"
-// # include "../libft_utils/printf/ft_printf.h"
-
-// // mandelbrot_set(int argc, char **argv);
-// // julia_set(int argc, char **argv);
-// int	mandelbrot_iteration(double cr, double ci, int max_iter);
-// void	pixel_to_complex(t_fractol *fractol, int x, int y, double *c);
-// void	draw_mandelbrot(t_fractol *fractol);
-// void	init_mandelbrot(t_fractol *fractol);
-// int	get_color(int iter, int max_iter, int color_scheme);
-
-
-// #endif
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: student <student@42.fr>                    +#+  +:+       +#+        */
+/*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 10:00:00 by student           #+#    #+#             */
-/*   Updated: 2025/03/01 10:00:00 by student          ###   ########.fr       */
+/*   Updated: 2025/03/11 13:57:16 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +14,18 @@
 # define FRACTOL_H
 
 # include "../minilibx/mlx.h"
+#include "../libft_utils/libft/libft.h"
+#include "../libft_utils/printf/ft_printf.h"
 # include <math.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h> // perror
 
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 800
 
 # define MANDELBROT 1
 # define JULIA 2
-# define BURNING_SHIP 3
 
 typedef struct s_fractol
 {
@@ -115,5 +87,9 @@ void	init_burning_ship(t_fractol *fractol);
 void	draw_burning_ship(t_fractol *fractol);
 int	burning_ship_iteration(double cr, double ci, int max_iter);
 
+// ============== exit.c ===============
+int		close_window(t_fractol *fractol);
+void	cleanup_fractol(t_fractol *fractol);
+void	malloc_error(void);
 
 #endif
