@@ -13,6 +13,7 @@ SRC = $(MAN_DIR)/main.c \
 	$(MAN_DIR)/mandelbrot.c \
 	$(MAN_DIR)/julia.c \
 	$(MAN_DIR)/exit.c \
+	$(MAN_DIR)/init.c \
 
 OBJ = $(SRC:.c=.o)
 
