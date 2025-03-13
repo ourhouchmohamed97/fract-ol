@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:06:06 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/13 17:43:05 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/13 22:29:42 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,28 +139,6 @@ int handle_mouse(int button, int x, int y, t_fractol *fractol)
 }
 
 /*
-** Handle mouse movement (for Julia set)
-*/
-// int handle_mouse_move(int x, int y, t_fractol *fractol)
-// {
-//     if (fractol->fractal_type == JULIA)
-//     {
-//         // Only update if the mouse has moved significantly
-//         if (abs(fractol->mouse_x - x) > 10 || abs(fractol->mouse_y - y) > 10)
-//         {
-//             fractol->mouse_x = x;
-//             fractol->mouse_y = y;
-//             double c[2];
-//             pixel_to_complex(fractol, x, y, c);
-//             fractol->julia_r = c[0];
-//             fractol->julia_i = c[1];
-//             render_fractol(fractol);
-//         }
-//     }
-//     return (0);
-// }
-
-/*
 ** Print help information
 */
 void print_help(void)
@@ -188,8 +166,8 @@ void    arg_parse(int argc, char **argv, t_fractol *fractol)
     }
     if (argc == 4)
     {
-            fractol->julia_i = ft_atof(argv[2]);
-            fractol->julia_r = ft_atof(argv[3]);
+            fractol->julia_r = ft_atof(argv[2]);
+            fractol->julia_i = ft_atof(argv[3]);
     }
     else if (argc == 2)
     {
@@ -206,24 +184,23 @@ void    arg_parse(int argc, char **argv, t_fractol *fractol)
 
 int main(int argc, char **argv)
 {
-    t_fractol *fractol;
-    int type;
+    t_fractol   *fractol;
+    int         type;
 
     type = 0;
     fractol = malloc(sizeof(t_fractol));
     if (!fractol)
         return (1);
+    arg_parse(argc, argv, fractol);
     if ((ft_strlen(argv[1]) == 10) && (ft_strncmp(argv[1], "Mandelbrot", 10) == 0))
         type = MANDELBROT;
     else if ((ft_strlen(argv[1]) == 5) && (ft_strncmp(argv[1], "Julia", 5) == 0))
         type = JULIA;
     else
     {
-        ft_printf("\033[31mError: Invalid type !\033[0m\n");
-        ft_printf("     type: 1 - Mandelbrot, 2 - Julia\n");
+        ft_printf ("\033[31mInvalid type!\033[0m\ntype: 1 - Mandelbrot, 2 - Julia");
         exit (EXIT_FAILURE);
     }
-    arg_parse(argc, argv, fractol);
     init_fractol(fractol, type);
     print_help();
     render_fractol(fractol);
