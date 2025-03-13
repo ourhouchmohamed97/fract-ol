@@ -7,6 +7,7 @@ DEPS = ./libft/libft.h ./printf/ft_printf.h
 
 LIBFT_SRCS = ./libft/ft_strlen.c \
 	  		./libft/ft_strncmp.c \
+			./libft/ft_atof.c \
 
 PRINTF_SRCS = ./printf/ft_printf.c \
 		./printf/ft_putstr.c \
