@@ -6,40 +6,12 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:06:06 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/11 14:10:58 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/11 15:26:25 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-// void	mandelbrot_set(int argc, char **argv)
-// {
-// 	ft_printf("This is Mandelbrot set");
-// }
-
-// void	julia_set(int argc, char **argv)
-// {
-// 	ft_printf("This is Julia set");
-// }
-
-// int main(int argc, char **argv)
-// {
-// 	if (argc < 2)
-// 	{
-// 		ft_printf("you should enter at least 2 argument!");
-// 		exit(1);
-// 	}
-// 	if (ft_strncmp(argv[1], "Mandelbrot", 11) == 0 && argc == 2)
-// 		mandelbrot_set(argc, argv);
-// 	else if (ft_strncmp(argv[1], "Julia", 6) == 0 && argc == 2)
-// 		julia_set(argc, argv);
-// 	else
-// 		ft_printf("invalid fractal");
-// }
-
-/*
-** Initialize the MLX library and create window
-*/
 void init_mlx(t_fractol *fractol)
 {
     fractol->mlx = mlx_init();

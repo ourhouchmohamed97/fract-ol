@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 10:00:00 by student           #+#    #+#             */
-/*   Updated: 2025/03/11 13:57:16 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/13 11:16:09 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define FRACTOL_H
 
 # include "../minilibx/mlx.h"
-#include "../libft_utils/libft/libft.h"
-#include "../libft_utils/printf/ft_printf.h"
+# include "../libft_utils/libft/libft.h"
+# include "../libft_utils/printf/ft_printf.h"
 # include <math.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -26,6 +26,12 @@
 
 # define MANDELBROT 1
 # define JULIA 2
+
+typedef struct s_complex
+{
+	double	r;
+	double	i;
+}	t_complex;
 
 typedef struct s_fractol
 {
@@ -68,10 +74,6 @@ void	init_julia(t_fractol *fractol);
 void	draw_julia(t_fractol *fractol);
 int		julia_iteration(double zr, double zi, double cr, double ci, int max_iter);
 
-void	init_burning_ship(t_fractol *fractol);
-void	draw_burning_ship(t_fractol *fractol);
-int		burning_ship_iteration(double cr, double ci, int max_iter);
-
 /* Utility Functions */
 void	pixel_to_complex(t_fractol *fractol, int x, int y, double *c);
 void	zoom(t_fractol *fractol, int x, int y, double factor);
@@ -80,12 +82,6 @@ int		get_color(int iter, int max_iter, int color_scheme);
 void	print_help(void);
 
 void	init_mlx(t_fractol *fractol);
-int	julia_iteration(double zr, double zi, double cr, double ci, int max_iter);
-void	draw_julia(t_fractol *fractol);
-void	init_julia(t_fractol *fractol);
-void	init_burning_ship(t_fractol *fractol);
-void	draw_burning_ship(t_fractol *fractol);
-int	burning_ship_iteration(double cr, double ci, int max_iter);
 
 // ============== exit.c ===============
 int		close_window(t_fractol *fractol);

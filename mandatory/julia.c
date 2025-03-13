@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   j_set.c                                            :+:      :+:    :+:   */
+/*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 10:25:02 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/01 10:27:57 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/13 11:20:56 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,7 @@ void	draw_julia(t_fractol *fractol)
 		{
 			pixel_to_complex(fractol, x, y, c);
 			// Call with c as the point to test, julia_r/i as the constant
-			iter = julia_iteration(c[0], c[1], fractol->julia_r, 
-                                  fractol->julia_i, fractol->max_iter);
+			iter = julia_iteration(c[0], c[1], fractol->julia_r, fractol->julia_i, fractol->max_iter);
 			color = get_color(iter, fractol->max_iter, fractol->color_scheme);
 			put_pixel_to_image(fractol, x, y, color);
 			x++;

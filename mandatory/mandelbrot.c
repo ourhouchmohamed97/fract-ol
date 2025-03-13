@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 09:39:49 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/01 09:42:02 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/13 10:37:02 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,12 @@ void	draw_mandelbrot(t_fractol *fractol)
 */
 void	init_mandelbrot(t_fractol *fractol)
 {
+	double aspect_ratio;
 	fractol->min_r = -2.0;
 	fractol->max_r = 1.0;
-	fractol->min_i = -1.5;
-	fractol->max_i = 1.5;
+	aspect_ratio = (double)fractol->height / fractol->width;
+	fractol->min_i = -1.5 * aspect_ratio;
+	fractol->max_i = 1.5 * aspect_ratio;
 	fractol->max_iter = 100;
 	fractol->zoom_factor = 1.1;
 	fractol->fractal_type = MANDELBROT;
