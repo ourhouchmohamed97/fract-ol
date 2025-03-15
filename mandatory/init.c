@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 22:38:41 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/13 22:48:00 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/15 11:14:59 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ void init_mlx(t_fractol *fractol)
         free(fractol->mlx);
         malloc_error();
     }
-    fractol->img = mlx_new_image(fractol->mlx, fractol->width, fractol->height);
-    if (!fractol->img)
+    fractol->img.img = mlx_new_image(fractol->mlx, fractol->width, fractol->height);
+    if (!fractol->img.img)
     {
         mlx_destroy_window(fractol->mlx, fractol->win);
         free(fractol->mlx);
         malloc_error();
     }
-    fractol->addr = mlx_get_data_addr(fractol->img, &fractol->bits_per_pixel,
-                                      &fractol->line_length, &fractol->endian);
+    fractol->img.addr = mlx_get_data_addr(fractol->img.img, &fractol->img.bits_per_pixel,
+                                      &fractol->img.line_length, &fractol->img.endian);
 }
 
 void init_fractol(t_fractol *fractol, int type)
@@ -54,8 +54,8 @@ void put_pixel_to_image(t_fractol *fractol, int x, int y, int color)
 
     if (x >= 0 && x < fractol->width && y >= 0 && y < fractol->height)
     {
-        dst = fractol->addr + (y * fractol->line_length +
-                               x * (fractol->bits_per_pixel / 8));
+        dst = fractol->img.addr + (y * fractol->img.line_length +
+                               x * (fractol->img.bits_per_pixel / 8));
         *(unsigned int *)dst = color;
     }
 }
@@ -77,16 +77,13 @@ void print_help(void)
 
 void    arg_parse(int argc, char **argv, t_fractol *fractol)
 {
-    int type;
-
-    type = 0;
     if (argc < 2)
     {
         ft_printf("Usage: ./fractol <type>\n");
         ft_printf("You should enter 2 arguments\n");
         exit(EXIT_FAILURE);
     }
-    if (argc == 4)
+    if (argc == 4 && (ft_strlen(argv[1]) == 5) && (ft_strncmp(argv[1], "Julia", 5) == 0))
     {
             fractol->julia_r = ft_atof(argv[2]);
             fractol->julia_i = ft_atof(argv[3]);
@@ -99,7 +96,6 @@ void    arg_parse(int argc, char **argv, t_fractol *fractol)
     else
     {
         ft_printf("\033[31mError: Too many arguments !\033[0m\n");
-        ft_printf("Maximum arguments is 4\n");
         exit(EXIT_FAILURE);
     }
 }

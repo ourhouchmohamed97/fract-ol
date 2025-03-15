@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 10:25:02 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/13 12:45:05 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/15 11:12:26 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	draw_julia(t_fractol *fractol)
 		}
 		y++;
 	}
-	mlx_put_image_to_window(fractol->mlx, fractol->win, fractol->img, 0, 0);
+	mlx_put_image_to_window(fractol->mlx, fractol->win, fractol->img.img, 0, 0);
 }
 
 /*

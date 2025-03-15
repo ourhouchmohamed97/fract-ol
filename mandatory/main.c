@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:06:06 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/13 22:41:45 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/15 11:19:04 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,14 +86,11 @@ int handle_key(int key, t_fractol *fractol)
 
 int main(int argc, char **argv)
 {
-    t_fractol   *fractol;
+    t_fractol   fractol;
     int         type;
 
     type = 0;
-    fractol = malloc(sizeof(t_fractol));
-    if (!fractol)
-        return (1);
-    arg_parse(argc, argv, fractol);
+    arg_parse(argc, argv, &fractol);
     if ((ft_strlen(argv[1]) == 10) && (ft_strncmp(argv[1], "Mandelbrot", 10) == 0))
         type = MANDELBROT;
     else if ((ft_strlen(argv[1]) == 5) && (ft_strncmp(argv[1], "Julia", 5) == 0))
@@ -103,12 +100,12 @@ int main(int argc, char **argv)
         ft_printf ("\033[31mInvalid type!\033[0m\ntype: 1 - Mandelbrot, 2 - Julia");
         exit (EXIT_FAILURE);
     }
-    init_fractol(fractol, type);
+    init_fractol(&fractol, type);
     print_help();
-    render_fractol(fractol);
-    mlx_key_hook(fractol->win, handle_key, fractol);
-    mlx_mouse_hook(fractol->win, handle_mouse, fractol);
-    mlx_hook(fractol->win, 17, 0, close_window, fractol);
-    mlx_loop(fractol->mlx);
+    render_fractol(&fractol);
+    mlx_key_hook(fractol.win, handle_key, &fractol);
+    mlx_mouse_hook(fractol.win, handle_mouse, &fractol);
+    mlx_hook(fractol.win, 17, 0, close_window, &fractol);
+    mlx_loop(fractol.mlx);
     return (0);
 }

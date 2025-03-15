@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 10:00:00 by student           #+#    #+#             */
-/*   Updated: 2025/03/13 21:32:45 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/15 11:11:19 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,22 @@ typedef struct s_complex
 	double	i;
 }	t_complex;
 
-typedef struct s_fractol
+typedef	struct	s_img
 {
-	void	*mlx;
-	void	*win;
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+}	t_img;
+
+typedef struct s_fractol
+{
+	void	*mlx;
+	void	*win;
 	int		width;
 	int		height;
+	t_img	img;
 	double	min_r;
 	double	max_r;
 	double	min_i;

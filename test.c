@@ -58,3 +58,4 @@ int main()
 	mlx_key_hook(win, key_press, NULL);
 	mlx_loop(mlx);
 }
+
