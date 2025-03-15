@@ -27,6 +27,7 @@ SRC_BON = $(BON_DIR)/main_bonus.c \
 	$(BON_DIR)/julia_bonus.c \
 	$(BON_DIR)/exit_bonus.c \
 	$(BON_DIR)/init_bonus.c \
+	$(BON_DIR)/burning_bonus.c \
 
 
 OBJ_BON = $(SRC_BON:.c=.o)
@@ -45,7 +46,7 @@ $(LIBFT):
 bonus: $(NAME_BONUS)
 
 $(NAME_BONUS): $(OBJ_BON) $(LIBFT) $(DEP_BON)
-	$(CC) $(CFLAGS) $(MLX_FLAGS) $(OBJ) $(LIBFT) -o $(NAME_BONUS)
+	$(CC) $(CFLAGS) $(MLX_FLAGS) $(OBJ_BON) $(LIBFT) -o $(NAME_BONUS)
 
 clean:
 	make clean -C $(LIBFT_DIR)

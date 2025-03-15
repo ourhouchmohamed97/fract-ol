@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 16:52:22 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/15 19:23:13 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/15 21:46:39 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	init_fractol(t_fractol *fractol, int type)
 		init_mandelbrot(fractol);
 	else if (type == JULIA)
 		init_julia(fractol);
-	else if (type == BURNING_SHIP)
+	else if (type == BURNING)
 		init_burning_ship(fractol);
 }
 
@@ -62,7 +62,7 @@ void	render_fractol(t_fractol *fractol)
 		draw_mandelbrot(fractol);
 	else if (fractol->fractal_type == JULIA)
 		draw_julia(fractol);
-	else if (fractol->fractal_type == BURNING_SHIP)
+	else if (fractol->fractal_type == BURNING)
 		draw_burning_ship(fractol);
 }
 

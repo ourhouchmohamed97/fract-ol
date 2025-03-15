@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:06:06 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/15 19:19:27 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/15 21:47:50 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	handle_key(int key, t_fractol *fractol)
 	else if (key == 19)  // 2 key - switch to Julia
 		fractol->fractal_type = JULIA;
 	else if (key == 20)  // 3 key - switch to Burning Ship
-		fractol->fractal_type = BURNING_SHIP;
+		fractol->fractal_type = BURNING;
 	else if (key == 123) // Left arrow - move left
     {
         shift = 0.1 * (fractol->max_r - fractol->min_r);
@@ -166,11 +166,11 @@ int main(int argc, char **argv)
         type = MANDELBROT;
     else if ((ft_strlen(argv[1]) == 5) && (ft_strncmp(argv[1], "Julia", 5) == 0))
         type = JULIA;
-    else if ((ft_strlen(argv[1]) == 11) && (ft_strncmp(argv[1], "BurningShip", 11) == 0))
-        type = BURNING_SHIP;
+    else if ((ft_strlen(argv[1]) == 7) && (ft_strncmp(argv[1], "Burning", 7) == 0))
+        type = BURNING;
     else
     {
-        ft_printf ("\033[31mInvalid type!\033[0m\ntype: 1 - Mandelbrot, 2 - Julia");
+        ft_printf ("\033[31mInvalid type!\033[0m\ntype: 1 - Mandelbrot, 2 - Julia 3 - Burning");
         exit (EXIT_FAILURE);
     }
     init_fractol(&fractol, type);

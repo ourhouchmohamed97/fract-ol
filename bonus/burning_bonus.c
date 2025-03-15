@@ -6,11 +6,11 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 10:24:26 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/15 16:58:59 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/15 21:50:49 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol.h"
+#include "../include/fractol_bonus.h"
 
 /*
 ** This function calculates if a point is in the Burning Ship fractal
@@ -65,7 +65,7 @@ void	draw_burning_ship(t_fractol *fractol)
 		}
 		y++;
 	}
-	mlx_put_image_to_window(fractol->mlx, fractol->win, fractol->img, 0, 0);
+	mlx_put_image_to_window(fractol->mlx, fractol->win, fractol->img.img, 0, 0);
 }
 
 /*
@@ -80,6 +80,6 @@ void	init_burning_ship(t_fractol *fractol)
 	fractol->max_i = 1.0;
 	fractol->max_iter = 100;
 	fractol->zoom_factor = 1.1;
-	fractol->fractal_type = BURNING_SHIP;
+	fractol->fractal_type = BURNING;
 	fractol->color_scheme = 0;
 }
