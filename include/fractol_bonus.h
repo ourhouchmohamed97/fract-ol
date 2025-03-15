@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 16:45:11 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/15 16:59:27 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/15 19:19:09 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 
 # define MANDELBROT 1
 # define JULIA 2
-# define BURNINGSHIP 3
+# define BURNING_SHIP 3
 
 typedef struct s_complex
 {

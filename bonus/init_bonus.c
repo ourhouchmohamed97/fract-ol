@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 16:52:22 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/15 16:54:19 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/15 19:23:13 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@ void	init_mlx(t_fractol *fractol)
 		free(fractol->mlx);
 		exit(1);
 	}
-	fractol->img = mlx_new_image(fractol->mlx, fractol->width, fractol->height);
-	if (!fractol->img)
+	fractol->img.img = mlx_new_image(fractol->mlx, fractol->width, fractol->height);
+	if (!fractol->img.img)
 	{
 		mlx_destroy_window(fractol->mlx, fractol->win);
 		free(fractol->mlx);
 		exit(1);
 	}
-	fractol->addr = mlx_get_data_addr(fractol->img, &fractol->bits_per_pixel,
-									 &fractol->line_length, &fractol->endian);
+	fractol->img.addr = mlx_get_data_addr(fractol->img.img, &fractol->img.bits_per_pixel,
+									 &fractol->img.line_length, &fractol->img.endian);
 }
 
 /*
@@ -75,8 +75,8 @@ void	put_pixel_to_image(t_fractol *fractol, int x, int y, int color)
 
 	if (x >= 0 && x < fractol->width && y >= 0 && y < fractol->height)
 	{
-		dst = fractol->addr + (y * fractol->line_length + 
-				x * (fractol->bits_per_pixel / 8));
+		dst = fractol->img.addr + (y * fractol->img.line_length + 
+				x * (fractol->img.bits_per_pixel / 8));
 		*(unsigned int *)dst = color;
 	}
 }

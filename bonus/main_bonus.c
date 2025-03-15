@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:06:06 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/15 16:53:25 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/15 19:19:27 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,7 +167,7 @@ int main(int argc, char **argv)
     else if ((ft_strlen(argv[1]) == 5) && (ft_strncmp(argv[1], "Julia", 5) == 0))
         type = JULIA;
     else if ((ft_strlen(argv[1]) == 11) && (ft_strncmp(argv[1], "BurningShip", 11) == 0))
-        type = BURNINGSHIP;
+        type = BURNING_SHIP;
     else
     {
         ft_printf ("\033[31mInvalid type!\033[0m\ntype: 1 - Mandelbrot, 2 - Julia");

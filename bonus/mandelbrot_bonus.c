@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   mandelbrot_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 09:39:49 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/01 09:42:02 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/15 19:19:57 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	draw_mandelbrot(t_fractol *fractol)
 		}
 		y++;
 	}
-	mlx_put_image_to_window(fractol->mlx, fractol->win, fractol->img, 0, 0);
+	mlx_put_image_to_window(fractol->mlx, fractol->win, fractol->img.img, 0, 0);
 }
 
 /*
