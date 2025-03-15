@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atof.c                                          :+:      :+:    :+:   */
+/*   ft_atod.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 15:03:33 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/13 17:54:08 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/15 16:54:44 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ double	ft_atoi_part(const char *str, int *i)
 	return (res);
 }
 
-double	ft_atof(const char *str)
+double	ft_atod(const char *str)
 {
 	int	i;
 

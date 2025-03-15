@@ -9,7 +9,7 @@ PRINTF_DIR = ./printf
 
 LIBFT_SRCS = $(LIB_DIR)/ft_strlen.c \
 	  		$(LIB_DIR)/ft_strncmp.c \
-			$(LIB_DIR)/ft_atof.c \
+			$(LIB_DIR)/ft_atod.c \
 
 PRINTF_SRCS = $(PRINTF_DIR)/ft_printf.c \
 		$(PRINTF_DIR)/ft_putstr.c \

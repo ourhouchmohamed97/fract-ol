@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 16:47:13 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/13 15:36:11 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/15 16:54:37 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ typedef struct s_list
 
 size_t				ft_strlen(const char *s);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
-double				ft_atof(const char *str);
+double				ft_atod(const char *str);
 
 #endif

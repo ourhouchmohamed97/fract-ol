@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 22:38:41 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/15 11:14:59 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/15 16:56:01 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@ void init_mlx(t_fractol *fractol)
     fractol->img.img = mlx_new_image(fractol->mlx, fractol->width, fractol->height);
     if (!fractol->img.img)
     {
-        mlx_destroy_window(fractol->mlx, fractol->win);
-        free(fractol->mlx);
+		mlx_destroy_image(fractol->mlx, fractol->img.img);
+		mlx_destroy_window(fractol->mlx, fractol->win);
+	    free(fractol->mlx);
         malloc_error();
     }
     fractol->img.addr = mlx_get_data_addr(fractol->img.img, &fractol->img.bits_per_pixel,
@@ -67,7 +68,6 @@ void print_help(void)
 {
     ft_printf("\033[30mFractol Controls: \033[0m\n");
     ft_printf("  1, 2: Switch between Mandelbrot, Julia\n");
-    ft_printf("  Arrow keys: Move around\n");
     ft_printf("  Scroll wheel: Zoom in/out\n");
     ft_printf("  +/- : Increase/decrease iterations\n");
     ft_printf("  C: Change color scheme\n");
@@ -85,8 +85,8 @@ void    arg_parse(int argc, char **argv, t_fractol *fractol)
     }
     if (argc == 4 && (ft_strlen(argv[1]) == 5) && (ft_strncmp(argv[1], "Julia", 5) == 0))
     {
-            fractol->julia_r = ft_atof(argv[2]);
-            fractol->julia_i = ft_atof(argv[3]);
+            fractol->julia_r = ft_atod(argv[2]);
+            fractol->julia_i = ft_atod(argv[3]);
     }
     else if (argc == 2)
     {

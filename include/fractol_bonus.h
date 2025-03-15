@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   fractol_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/01 10:00:00 by student           #+#    #+#             */
-/*   Updated: 2025/03/15 16:46:23 by mourhouc         ###   ########.fr       */
+/*   Created: 2025/03/15 16:45:11 by mourhouc          #+#    #+#             */
+/*   Updated: 2025/03/15 16:59:27 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#ifndef FRACTOL_BONUS_H
+# define FRACTOL_BONUS_H
 
 # include "../minilibx/mlx.h"
 # include "../libft_utils/libft/libft.h"
@@ -26,6 +26,7 @@
 
 # define MANDELBROT 1
 # define JULIA 2
+# define BURNINGSHIP 3
 
 typedef struct s_complex
 {
@@ -90,6 +91,11 @@ void	init_mlx(t_fractol *fractol);
 int		close_window(t_fractol *fractol);
 void	cleanup_fractol(t_fractol *fractol);
 void	malloc_error(void);
-
 void	arg_parse(int argc, char **argv, t_fractol *fractol);
+
+int		burning_ship_iteration(double cr, double ci, int max_iter);
+void	draw_burning_ship(t_fractol *fractol);
+void	init_burning_ship(t_fractol *fractol);
+
+
 #endif

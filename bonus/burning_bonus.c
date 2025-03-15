@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   m_set.c                                            :+:      :+:    :+:   */
+/*   burning_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 10:24:26 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/01 10:27:50 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/15 16:58:59 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ int	burning_ship_iteration(double cr, double ci, int max_iter)
 	}
 	return (i);
 }
-
 /*
 ** This function draws the Burning Ship fractal
 */
 void	draw_burning_ship(t_fractol *fractol)
 {
+
 	int		x;
 	int		y;
 	int		iter;

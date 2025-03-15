@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:06:06 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/15 11:19:04 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/15 14:28:19 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,6 @@ int handle_key(int key, t_fractol *fractol)
         fractol->fractal_type = MANDELBROT;
     else if (key == 19) // 2 key - switch to Julia
         fractol->fractal_type = JULIA;
-    else if (key == 123) // Left arrow - move left
-        fractol->min_r -= 0.1 * (fractol->max_r - fractol->min_r);
-    else if (key == 124) // Right arrow - move right
-        fractol->min_r += 0.1 * (fractol->max_r - fractol->min_r);
-    else if (key == 125) // Down arrow - move down
-        fractol->min_i += 0.1 * (fractol->max_i - fractol->min_i);
-    else if (key == 126) // Up arrow - move up
-        fractol->min_i -= 0.1 * (fractol->max_i - fractol->min_i);
     else if (key == 69) // + key - increase iterations
         fractol->max_iter += 10;
     else if (key == 78 && fractol->max_iter > 10) // - key - decrease iterations
@@ -108,4 +100,5 @@ int main(int argc, char **argv)
     mlx_hook(fractol.win, 17, 0, close_window, &fractol);
     mlx_loop(fractol.mlx);
     return (0);
+
 }
