@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 10:25:02 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/15 11:12:26 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/16 15:54:29 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	julia_iteration(t_complex z, double cr, double ci, int max_iter)
 	while (i < max_iter)
 	{
 		if (z.r * z.r + z.i * z.i > 4.0)
-			break ;  // The point escapes, not in the Julia set
+			break ;
 		tmp = z.r * z.r - z.i * z.i + cr;
 		z.i = 2 * z.r * z.i + ci;
 		z.r = tmp;
@@ -40,11 +40,10 @@ int	julia_iteration(t_complex z, double cr, double ci, int max_iter)
 */
 void	draw_julia(t_fractol *fractol)
 {
-	int		x;
-	int		y;
-	int		iter;
-	double	c[2];  // Now c[0] = zr, c[1] = zi (the point to test)
-	int		color;
+	int			x;
+	int			y;
+	int			iter;
+	int			color;
 	t_complex	z;
 
 	y = 0;
@@ -53,10 +52,9 @@ void	draw_julia(t_fractol *fractol)
 		x = 0;
 		while (x < fractol->width)
 		{
-			pixel_to_complex(fractol, x, y, c);
-			z.r = c[0];
-            z.i = c[1];
-			iter = julia_iteration(z, fractol->julia_r, fractol->julia_i, fractol->max_iter);
+			pixel_to_complex(fractol, x, y, &z);
+			iter = julia_iteration(z, fractol->julia_r, 
+					fractol->julia_i, fractol->max_iter);
 			color = get_color(iter, fractol->max_iter, fractol->color_scheme);
 			put_pixel_to_image(fractol, x, y, color);
 			x++;

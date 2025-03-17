@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 10:24:26 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/15 21:50:49 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/17 11:38:08 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,27 +29,25 @@ int	burning_ship_iteration(double cr, double ci, int max_iter)
 	while (i < max_iter)
 	{
 		if (zr * zr + zi * zi > 4.0)
-			break ;  // The point escapes, not in the set
-		// The key difference from Mandelbrot is taking the absolute value
-		// before squaring
+			break ;
 		tmp = zr * zr - zi * zi + cr;
-		zi = fabs(2 * zr * zi) + ci;  // Take absolute value here
+		zi = fabs(2 * zr * zi) + ci;
 		zr = tmp;
 		i++;
 	}
 	return (i);
 }
+
 /*
 ** This function draws the Burning Ship fractal
 */
 void	draw_burning_ship(t_fractol *fractol)
 {
-
-	int		x;
-	int		y;
-	int		iter;
-	double	c[2];  // c[0] = real part, c[1] = imaginary part
-	int		color;
+	int			x;
+	int			y;
+	int			iter;
+	int			color;
+	t_complex	z;
 
 	y = 0;
 	while (y < fractol->height)
@@ -57,8 +55,8 @@ void	draw_burning_ship(t_fractol *fractol)
 		x = 0;
 		while (x < fractol->width)
 		{
-			pixel_to_complex(fractol, x, y, c);
-			iter = burning_ship_iteration(c[0], c[1], fractol->max_iter);
+			pixel_to_complex(fractol, x, y, &z);
+			iter = burning_ship_iteration(z.r, z.i, fractol->max_iter);
 			color = get_color(iter, fractol->max_iter, fractol->color_scheme);
 			put_pixel_to_image(fractol, x, y, color);
 			x++;

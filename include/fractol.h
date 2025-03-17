@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 10:00:00 by student           #+#    #+#             */
-/*   Updated: 2025/03/15 16:46:23 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/16 16:54:44 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_complex
 	double	i;
 }	t_complex;
 
-typedef	struct	s_img
+typedef struct s_img
 {
 	void	*img;
 	char	*addr;
@@ -79,10 +79,9 @@ void	init_julia(t_fractol *fractol);
 void	draw_julia(t_fractol *fractol);
 int		julia_iteration(t_complex z, double cr, double ci, int max_iter);
 /* Utility Functions */
-void	pixel_to_complex(t_fractol *fractol, int x, int y, double *c);
+void	pixel_to_complex(t_fractol *fractol, int x, int y, t_complex *z);
 void	zoom(t_fractol *fractol, int x, int y, double factor);
 void	put_pixel_to_image(t_fractol *fractol, int x, int y, int color);
-int		get_color(int iter, int max_iter, int color_scheme);
 void	print_help(void);
 void	init_mlx(t_fractol *fractol);
 
@@ -92,4 +91,11 @@ void	cleanup_fractol(t_fractol *fractol);
 void	malloc_error(void);
 
 void	arg_parse(int argc, char **argv, t_fractol *fractol);
+
+// ============== color.c ===============
+int		color_scheme_0(int iter, int max_iter);
+int		color_scheme_1(int iter, int max_iter);
+int		color_scheme_2(int iter, int max_iter);
+int		get_color(int iter, int max_iter, int color_scheme);
+
 #endif

@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 16:45:11 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/15 21:38:24 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/17 12:26:37 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_complex
 	double	i;
 }	t_complex;
 
-typedef	struct	s_img
+typedef struct s_img
 {
 	void	*img;
 	char	*addr;
@@ -67,6 +67,7 @@ typedef struct s_fractol
 /* Main Functions */
 void	init_fractol(t_fractol *fractol, int type);
 int		handle_key(int key, t_fractol *fractol);
+void	arrow_key(int key, t_fractol *fractol);
 int		handle_mouse(int button, int x, int y, t_fractol *fractol);
 int		handle_mouse_move(int x, int y, t_fractol *fractol);
 void	render_fractol(t_fractol *fractol);
@@ -80,7 +81,7 @@ void	init_julia(t_fractol *fractol);
 void	draw_julia(t_fractol *fractol);
 int		julia_iteration(t_complex z, double cr, double ci, int max_iter);
 /* Utility Functions */
-void	pixel_to_complex(t_fractol *fractol, int x, int y, double *c);
+void	pixel_to_complex(t_fractol *fractol, int x, int y, t_complex *z);
 void	zoom(t_fractol *fractol, int x, int y, double factor);
 void	put_pixel_to_image(t_fractol *fractol, int x, int y, int color);
 int		get_color(int iter, int max_iter, int color_scheme);
@@ -96,6 +97,5 @@ void	arg_parse(int argc, char **argv, t_fractol *fractol);
 int		burning_ship_iteration(double cr, double ci, int max_iter);
 void	draw_burning_ship(t_fractol *fractol);
 void	init_burning_ship(t_fractol *fractol);
-
 
 #endif

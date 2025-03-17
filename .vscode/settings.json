@@ -3,7 +3,20 @@
 		"mlx.h": "c",
 		"fractol.h": "c",
 		"libft.h": "c",
-		"fractol_bonus.h": "c"
+		"fractol_bonus.h": "c",
+		"__functional_base": "c",
+		"__functional_base_03": "c",
+		"__hash_table": "c",
+		"__tuple": "c",
+		"array": "c",
+		"chrono": "c",
+		"type_traits": "c",
+		"functional": "c",
+		"limits": "c",
+		"memory": "c",
+		"ratio": "c",
+		"tuple": "c",
+		"utility": "c"
 	},
 	"C_Cpp.errorSquiggles": "disabled"
 }

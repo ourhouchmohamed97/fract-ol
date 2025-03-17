@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 13:24:44 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/15 15:34:56 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/16 16:50:49 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,8 @@ void	cleanup_fractol(t_fractol *fractol)
 	exit(EXIT_SUCCESS);
 }
 
-/*
-** Handle window close event (X button)
-*/
-
 int	close_window(t_fractol *fractol)
 {
 	cleanup_fractol(fractol);
 	return (0);
 }
-

@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 09:39:49 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/15 19:19:57 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/17 11:02:18 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	mandelbrot_iteration(double cr, double ci, int max_iter)
 	while (i < max_iter)
 	{
 		if (zr * zr + zi * zi > 4.0)
-			break ;  // The point escapes, not in the Mandelbrot set
+			break ;
 		tmp = zr * zr - zi * zi + cr;
 		zi = 2 * zr * zi + ci;
 		zr = tmp;
@@ -41,10 +41,19 @@ int	mandelbrot_iteration(double cr, double ci, int max_iter)
 /*
 ** This function maps from pixel coordinates to complex plane coordinates
 */
-void	pixel_to_complex(t_fractol *fractol, int x, int y, double *c)
+void	pixel_to_complex(t_fractol *fractol, int x, int y, t_complex *z)
 {
-	c[0] = fractol->min_r + (double)x / (fractol->width - 1) * (fractol->max_r - fractol->min_r);
-	c[1] = fractol->min_i + (double)y / (fractol->height - 1) * (fractol->max_i - fractol->min_i);
+	double	a;
+	double	b;
+	double	c;
+	double	d;
+
+	a = fractol->min_r;
+	b = fractol->min_i;
+	c = fractol->max_r;
+	d = fractol->max_i;
+	z->r = a + (double)x / (fractol->width - 1) * (c - a);
+	z->i = b + (double)y / (fractol->height - 1) * (d - b);
 }
 
 /*
@@ -52,11 +61,11 @@ void	pixel_to_complex(t_fractol *fractol, int x, int y, double *c)
 */
 void	draw_mandelbrot(t_fractol *fractol)
 {
-	int		x;
-	int		y;
-	int		iter;
-	double	c[2];  // c[0] = real part, c[1] = imaginary part
-	int		color;
+	int			x;
+	int			y;
+	int			iter;
+	int			color;
+	t_complex	z;
 
 	y = 0;
 	while (y < fractol->height)
@@ -64,8 +73,8 @@ void	draw_mandelbrot(t_fractol *fractol)
 		x = 0;
 		while (x < fractol->width)
 		{
-			pixel_to_complex(fractol, x, y, c);
-			iter = mandelbrot_iteration(c[0], c[1], fractol->max_iter);
+			pixel_to_complex(fractol, x, y, &z);
+			iter = mandelbrot_iteration(z.r, z.i, fractol->max_iter);
 			color = get_color(iter, fractol->max_iter, fractol->color_scheme);
 			put_pixel_to_image(fractol, x, y, color);
 			x++;
