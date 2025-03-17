@@ -45,17 +45,16 @@
 
 
 
-int key_press(int keycode, void *param)
-{
-	printf("key is: %d\n", keycode);
-	return (0);
-}
+// int key_press(int keycode, void *param)
+// {
+// 	printf("key is: %d\n", keycode);
+// 	return (0);
+// }
 
-int main()
-{
-	void *mlx = mlx_init();
-	void *win = mlx_new_window(mlx, 1000, 500, "check key");
-	mlx_key_hook(win, key_press, NULL);
-	mlx_loop(mlx);
-}
-
+// int main()
+// {
+// 	void *mlx = mlx_init();
+// 	void *win = mlx_new_window(mlx, 1000, 500, "check key");
+// 	mlx_key_hook(win, key_press, NULL);
+// 	mlx_loop(mlx);
+// }

@@ -6,15 +6,12 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 09:41:47 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/16 17:11:18 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:48:34 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-/*
-** Color scheme 0: Linear gradient from black to white
-*/
 int	color_scheme_0(int iter, int max_iter)
 {
 	double	t;
@@ -31,9 +28,6 @@ int	color_scheme_0(int iter, int max_iter)
 	return ((r << 16) | (g << 8) | b);
 }
 
-/*
-** Color scheme 1: Psychedelic gradient
-*/
 int	color_scheme_1(int iter, int max_iter)
 {
 	double	t;
@@ -49,10 +43,6 @@ int	color_scheme_1(int iter, int max_iter)
 	b = (int)(255 * sin(0.1 * iter + 4));
 	return ((r << 16) | (g << 8) | b);
 }
-
-/*
-** Color scheme 2: Smooth coloring using HSV
-*/
 
 int	color_scheme_2(int iter, int max_iter)
 {
@@ -83,9 +73,6 @@ int	color_scheme_2(int iter, int max_iter)
 	return ((r << 16) | (g << 8) | b);
 }
 
-/*
-** Get the color based on the iteration and chosen color scheme
-*/
 int	get_color(int iter, int max_iter, int color_scheme)
 {
 	if (color_scheme == 0)

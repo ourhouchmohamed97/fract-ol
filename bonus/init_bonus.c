@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 16:52:22 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/17 11:22:37 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:49:52 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,6 @@ void	init_fractol(t_fractol *fractol, int type)
 		init_burning_ship(fractol);
 }
 
-/*
-** Render the appropriate fractal based on type
-*/
 void	render_fractol(t_fractol *fractol)
 {
 	if (fractol->fractal_type == MANDELBROT)
@@ -64,9 +61,6 @@ void	render_fractol(t_fractol *fractol)
 		draw_burning_ship(fractol);
 }
 
-/*
-** Put a pixel to the image
-*/
 void	put_pixel_to_image(t_fractol *fractol, int x, int y, int color)
 {
 	char	*dst;
@@ -84,7 +78,7 @@ void	arg_parse(int argc, char **argv, t_fractol *fractol)
 	if (argc < 2)
 	{
 		ft_printf("Usage: ./fractol <type>\n");
-		ft_printf("You should enter 2 arguments\n");
+		ft_printf("You should enter at least 2 arguments\n");
 		exit(EXIT_FAILURE);
 	}
 	if (argc == 4 && (ft_strlen(argv[1]) == 5) 

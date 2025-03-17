@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 19:21:37 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/17 12:24:10 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:45:21 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,16 @@ void	cleanup_fractol(t_fractol *fractol)
 		mlx_destroy_image(fractol->mlx, fractol->img.img);
 	if (fractol->win)
 		mlx_destroy_window(fractol->mlx, fractol->win);
-	free(fractol->mlx);
 	ft_printf("\033[32mProgram quit successfully !\033[0m\n");
 	exit(EXIT_SUCCESS);
 }
 
-/*
-** Handle window close event (X button)
-*/
 int	close_window(t_fractol *fractol)
 {
 	cleanup_fractol(fractol);
 	return (0);
 }
 
-/*
-** Print help information
-*/
 void	print_help(void)
 {
 	ft_printf("\033[30mFractol Controls: \033[0m\n");

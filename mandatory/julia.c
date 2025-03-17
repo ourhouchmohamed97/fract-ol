@@ -6,17 +6,12 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 10:25:02 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/16 15:54:29 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:43:39 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-/*
-** This function calculates if a point is in the Julia set
-** It returns the number of iterations before escaping, or max_iter
-** Key difference from Mandelbrot: z starts as the point, c is constant
-*/
 int	julia_iteration(t_complex z, double cr, double ci, int max_iter)
 {
 	double	tmp;
@@ -35,9 +30,6 @@ int	julia_iteration(t_complex z, double cr, double ci, int max_iter)
 	return (i);
 }
 
-/*
-** This function draws the Julia set
-*/
 void	draw_julia(t_fractol *fractol)
 {
 	int			x;
@@ -64,9 +56,6 @@ void	draw_julia(t_fractol *fractol)
 	mlx_put_image_to_window(fractol->mlx, fractol->win, fractol->img.img, 0, 0);
 }
 
-/*
-** This function initializes the Julia set view
-*/
 void	init_julia(t_fractol *fractol)
 {
 	fractol->min_r = -2.0;

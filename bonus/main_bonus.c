@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:06:06 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/17 13:29:16 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:32:24 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,8 @@ int	main(int argc, char **argv)
 	t_fractol	fractol;
 
 	int (type), (len);
-	len = ((type = 0), ft_strlen(argv[1]));
 	arg_parse(argc, argv, &fractol);
+	len = ((type = 0), ft_strlen(argv[1]));
 	if ((len == 10) && (ft_strncmp(argv[1], "Mandelbrot", 10) == 0))
 		type = MANDELBROT;
 	else if ((len == 5) && (ft_strncmp(argv[1], "Julia", 5) == 0))
@@ -111,7 +111,7 @@ int	main(int argc, char **argv)
 	else
 	{
 		ft_printf ("Invalid type!\ntype: Mandelbrot, Julia, Burning");
-		exit (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 	init_fractol(&fractol, type);
 	print_help();

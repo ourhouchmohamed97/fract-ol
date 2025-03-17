@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:06:06 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/15 22:05:12 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/17 18:00:32 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,22 @@ void	render_fractol(t_fractol *fractol)
 
 void	zoom(t_fractol *fractol, int x, int y, double factor)
 {
-	double	center_re;
-	double	center_im;
-	double	new_width;
-	double	new_height;
+	double		mouse_r;
+	double		mouse_i;
+	double		new_width;
+	double		new_height;
+	t_complex	z;
 
 	(void)x;
 	(void)y;
-	center_re = fractol->min_r + (fractol->max_r - fractol->min_r) / 2.0;
-	center_im = fractol->min_i + (fractol->max_i - fractol->min_i) / 2.0;
-	new_width = (fractol->max_r - fractol->min_r) * factor;
-	new_height = (fractol->max_i - fractol->min_i) * factor;
-	fractol->min_r = center_re - new_width / 2.0;
-	fractol->max_r = center_re + new_width / 2.0;
-	fractol->min_i = center_im - new_height / 2.0;
-	fractol->max_i = center_im + new_height / 2.0;
+	mouse_r = z.r;
+	mouse_i = z.i;
+	new_width = (fractol->max_r - fractol->min_r) / factor;
+	new_height = (fractol->max_i - fractol->min_i) / factor;
+	fractol->min_r = mouse_r - (mouse_r - fractol->min_r) / factor;
+	fractol->max_r = fractol->min_r + new_width;
+	fractol->min_i = mouse_i - (mouse_i - fractol->min_i) / factor;
+	fractol->max_i = fractol->min_i + new_height;
 }
 
 int	handle_mouse(int button, int x, int y, t_fractol *fractol)
@@ -76,11 +77,11 @@ int	main(int argc, char **argv)
 
 	type = 0;
 	arg_parse(argc, argv, &fractol);
-	if ((ft_strlen(argv[1]) == 10) && 
-		(ft_strncmp(argv[1], "Mandelbrot", 10) == 0))
+	if ((ft_strlen(argv[1]) == 10) 
+		&& (ft_strncmp(argv[1], "Mandelbrot", 10) == 0))
 		type = MANDELBROT;
-	else if ((ft_strlen(argv[1]) == 5) && 
-		(ft_strncmp(argv[1], "Julia", 5) == 0))
+	else if ((ft_strlen(argv[1]) == 5) 
+		&& (ft_strncmp(argv[1], "Julia", 5) == 0))
 		type = JULIA;
 	else
 	{

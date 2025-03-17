@@ -6,16 +6,12 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 09:39:49 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/16 15:50:37 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:42:07 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-/*
-** This function calculates if a point is in the Mandelbrot set
-** It returns the number of iterations before escaping, or max_iter
-*/
 int	mandelbrot_iteration(double cr, double ci, int max_iter)
 {
 	double	zr;
@@ -38,9 +34,6 @@ int	mandelbrot_iteration(double cr, double ci, int max_iter)
 	return (i);
 }
 
-/*
-** This function maps from pixel coordinates to complex plane coordinates
-*/
 void	pixel_to_complex(t_fractol *fractol, int x, int y, t_complex *z)
 {
 	double	a;

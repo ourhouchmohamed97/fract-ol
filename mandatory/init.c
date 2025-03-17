@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 22:38:41 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/17 11:16:39 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:13:41 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	arg_parse(int argc, char **argv, t_fractol *fractol)
 	if (argc < 2)
 	{
 		ft_printf("Usage: ./fractol <type>\n");
-		ft_printf("You should enter 2 arguments\n");
+		ft_printf("You should enter at least 2 arguments\n");
 		exit(EXIT_FAILURE);
 	}
 	if (argc == 4 && (ft_strlen(argv[1]) == 5) 
