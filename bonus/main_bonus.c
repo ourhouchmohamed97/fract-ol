@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:06:06 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/17 17:32:24 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/18 08:25:49 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	arrow_key(int key, t_fractol *fractol)
 int	handle_key(int key, t_fractol *fractol)
 {
 	if (key == 53)
-		cleanup_fractol(fractol);
+		close_window(fractol);
 	else if (key == 18)
 		fractol->fractal_type = MANDELBROT;
 	else if (key == 19)
@@ -73,9 +73,6 @@ int	handle_mouse(int button, int x, int y, t_fractol *fractol)
 	return (0);
 }
 
-/*
-** Handle mouse movement (for Julia set)
-*/
 int	handle_mouse_move(int x, int y, t_fractol *fractol)
 {
 	t_complex	z;
