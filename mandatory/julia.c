@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 10:25:02 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/17 17:43:39 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/19 21:52:43 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,4 @@ void	init_julia(t_fractol *fractol)
 	fractol->zoom_factor = 1.1;
 	fractol->fractal_type = JULIA;
 	fractol->color_scheme = 0;
-	fractol->mouse_x = 0;
-	fractol->mouse_y = 0;
 }

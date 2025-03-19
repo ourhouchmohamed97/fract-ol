@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 22:38:41 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/19 12:46:36 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/19 22:01:52 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	arg_parse(int argc, char **argv, t_fractol *fractol)
 		ft_printf("You should enter at least 2 arguments\n");
 		exit(EXIT_FAILURE);
 	}
-	if (argc == 4 && (ft_strlen(argv[1]) == 5) 
+	if ((argc == 4) && (ft_strlen(argv[1]) == 5) 
 		&& (ft_strncmp(argv[1], "Julia", 5) == 0))
 	{
 		fractol->julia_r = ft_atod(argv[2]);
@@ -93,7 +93,7 @@ void	arg_parse(int argc, char **argv, t_fractol *fractol)
 	}
 	else
 	{
-		ft_printf("\033[31mError: Too many arguments !\033[0m\n");
+		ft_printf("\033[31mError: arguments == 2 or arguments == 4\033[0m\n");
 		exit(EXIT_FAILURE);
 	}
 }

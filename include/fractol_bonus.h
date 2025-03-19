@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 16:45:11 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/17 17:50:17 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/19 15:49:07 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ void	render_fractol(t_fractol *fractol);
 void	put_pixel_to_image(t_fractol *fractol, int x, int y, int color);
 void	arg_parse(int argc, char **argv, t_fractol *fractol);
 
-
 // ============== mandelbrot.c ===============
 void	init_mandelbrot(t_fractol *fractol);
 void	draw_mandelbrot(t_fractol *fractol);
@@ -92,7 +91,6 @@ int		julia_iteration(t_complex z, double cr, double ci, int max_iter);
 int		burning_ship_iteration(double cr, double ci, int max_iter);
 void	draw_burning_ship(t_fractol *fractol);
 void	init_burning_ship(t_fractol *fractol);
-
 
 // ============== exit.c ===============
 int		close_window(t_fractol *fractol);

@@ -4,7 +4,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 
-DEP_MAN = ./include/fractol.h 
+INC_MAN = ./include/fractol.h 
 MAN_DIR = ./mandatory
 MLX_LIB = ./minilibx/libmlx.a
 MLX_FLAGS = $(MLX_LIB) -framework OpenGL -framework AppKit
@@ -19,7 +19,7 @@ SRC = $(MAN_DIR)/main.c \
 OBJ = $(SRC:.c=.o)
 
 BON_DIR = ./bonus
-DEP_BON = ./include/fractol_bonus.h
+INC_BON = ./include/fractol_bonus.h
 
 SRC_BON = $(BON_DIR)/main_bonus.c \
 	$(BON_DIR)/color_bonus.c \
@@ -37,7 +37,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(LIBFT) $(DEP_MAN)
+$(NAME): $(OBJ) $(LIBFT) $(INC_MAN)
 	$(CC) $(CFLAGS) $(MLX_FLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
 $(LIBFT):
@@ -45,7 +45,7 @@ $(LIBFT):
 
 bonus: $(NAME_BONUS)
 
-$(NAME_BONUS): $(OBJ_BON) $(LIBFT) $(DEP_BON)
+$(NAME_BONUS): $(OBJ_BON) $(LIBFT) $(INC_BON)
 	$(CC) $(CFLAGS) $(MLX_FLAGS) $(OBJ_BON) $(LIBFT) -o $(NAME_BONUS)
 
 clean:
