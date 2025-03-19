@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 15:16:59 by mourhouc          #+#    #+#             */
-/*   Updated: 2024/11/23 16:40:28 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/18 09:15:36 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_putaddr(void *ptr, int *counter)
 {
 	unsigned long	addr;
-	char		*hexa;
+	char			*hexa;
 
 	hexa = "0123456789abcdef";
 	addr = (unsigned long)ptr;

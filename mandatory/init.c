@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 22:38:41 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/17 17:13:41 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/18 09:19:04 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ void	arg_parse(int argc, char **argv, t_fractol *fractol)
 	}
 	else if (argc == 2)
 	{
-		fractol->julia_r = -0.7269;
-		fractol->julia_i = 0.1889;
+		fractol->julia_r = -0.4;
+		fractol->julia_i = 0.6;
 	}
 	else
 	{

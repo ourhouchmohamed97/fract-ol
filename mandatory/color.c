@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 09:41:47 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/17 17:48:34 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/19 09:45:06 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ int	color_scheme_1(int iter, int max_iter)
 	if (iter == max_iter)
 		return (0x000000);
 	t = (double)iter / max_iter;
-	r = (int)(255 * sin(0.1 * iter + 0));
-	g = (int)(255 * sin(0.1 * iter + 2));
-	b = (int)(255 * sin(0.1 * iter + 4));
+	r = (int)(t * 255);
+	g = (int)((1 - t) * 255);
+	b = (int)((1 - t) * 255);
 	return ((r << 16) | (g << 8) | b);
 }
 

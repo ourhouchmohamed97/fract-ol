@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 09:39:49 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/17 17:42:07 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/18 12:24:20 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,6 @@ void	pixel_to_complex(t_fractol *fractol, int x, int y, t_complex *z)
 	z->i = b + (double)y / (fractol->height - 1) * (d - b);
 }
 
-/*
-** This function draws the Mandelbrot set
-*/
 void	draw_mandelbrot(t_fractol *fractol)
 {
 	int			x;
@@ -77,9 +74,6 @@ void	draw_mandelbrot(t_fractol *fractol)
 	mlx_put_image_to_window(fractol->mlx, fractol->win, fractol->img.img, 0, 0);
 }
 
-/*
-** This function initializes the Mandelbrot view
-*/
 void	init_mandelbrot(t_fractol *fractol)
 {
 	fractol->min_r = -2.0;
