@@ -6,16 +6,12 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 10:24:26 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/17 11:38:08 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/20 12:10:17 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol_bonus.h"
 
-/*
-** This function calculates if a point is in the Burning Ship fractal
-** It returns the number of iterations before escaping, or max_iter
-*/
 int	burning_ship_iteration(double cr, double ci, int max_iter)
 {
 	double	zr;
@@ -38,9 +34,6 @@ int	burning_ship_iteration(double cr, double ci, int max_iter)
 	return (i);
 }
 
-/*
-** This function draws the Burning Ship fractal
-*/
 void	draw_burning_ship(t_fractol *fractol)
 {
 	int			x;
@@ -66,10 +59,6 @@ void	draw_burning_ship(t_fractol *fractol)
 	mlx_put_image_to_window(fractol->mlx, fractol->win, fractol->img.img, 0, 0);
 }
 
-/*
-** This function initializes the Burning Ship view
-** The Burning Ship looks best with a slightly different initial view
-*/
 void	init_burning_ship(t_fractol *fractol)
 {
 	fractol->min_r = -2.0;

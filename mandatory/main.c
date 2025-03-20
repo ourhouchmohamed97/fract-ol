@@ -6,7 +6,7 @@
 /*   By: mourhouc <mourhouc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:06:06 by mourhouc          #+#    #+#             */
-/*   Updated: 2025/03/19 17:59:59 by mourhouc         ###   ########.fr       */
+/*   Updated: 2025/03/20 13:04:47 by mourhouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,48 +20,23 @@ void	render_fractol(t_fractol *fractol)
 		draw_julia(fractol);
 }
 
-// void	zoom(t_fractol *fractol, int x, int y, double factor)
-// {
-// 	double		mouse_r;
-// 	double		mouse_i;
-// 	double		new_width;
-// 	double		new_height;
-// 	t_complex	z;
-
-// 	(void)x;
-// 	(void)y;
-// 	mouse_r = z.r;
-// 	mouse_i = z.i;
-// 	new_width = (fractol->max_r - fractol->min_r) / factor;
-// 	new_height = (fractol->max_i - fractol->min_i) / factor;
-// 	fractol->min_r = mouse_r - (mouse_r - fractol->min_r) / factor;
-// 	fractol->max_r = fractol->min_r + new_width;
-// 	fractol->min_i = mouse_i - (mouse_i - fractol->min_i) / factor;
-// 	fractol->max_i = fractol->min_i + new_height;
-// }
-
-void zoom(t_fractol *fractol, int x, int y, double factor)
+void	zoom(t_fractol *fractol, int x, int y, double factor)
 {
-    double center_r;
-    double center_i;
-    double new_width;
-    double new_height;
+	double	center_r;
+	double	center_i;
+	double	new_width;
+	double	new_height;
 
 	(void)x;
 	(void)y;
-    // Calculate the center of the current fractal view
-    center_r = (fractol->min_r + fractol->max_r) / 2;
-    center_i = (fractol->min_i + fractol->max_i) / 2;
-
-    // Calculate the new width and height based on the zoom factor
-    new_width = (fractol->max_r - fractol->min_r) / factor;
-    new_height = (fractol->max_i - fractol->min_i) / factor;
-
-    // Adjust the fractal's min/max values to zoom in/out around the center
-    fractol->min_r = center_r - new_width / 2;
-    fractol->max_r = center_r + new_width / 2;
-    fractol->min_i = center_i - new_height / 2;
-    fractol->max_i = center_i + new_height / 2;
+	center_r = (fractol->min_r + fractol->max_r) / 2;
+	center_i = (fractol->min_i + fractol->max_i) / 2;
+	new_width = (fractol->max_r - fractol->min_r) / factor;
+	new_height = (fractol->max_i - fractol->min_i) / factor;
+	fractol->min_r = center_r - new_width / 2;
+	fractol->max_r = center_r + new_width / 2;
+	fractol->min_i = center_i - new_height / 2;
+	fractol->max_i = center_i + new_height / 2;
 }
 
 int	handle_mouse(int button, int x, int y, t_fractol *fractol)
